@@ -26,7 +26,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/6beb97e072221dc150318cf46173439b.jps'),
+            fit: BoxFit.cover,
+          )
+        ),
+        child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('Pode Entrar!',
@@ -36,11 +43,13 @@ class HomePage extends StatelessWidget {
             color: Color.fromARGB(255, 141, 4, 226),
           ),
           ),
-           Text('0',
+          const Padding(padding: EdgeInsets.all(50),
+          child: Text('0',
           style: TextStyle(
             fontSize: 26,
             fontWeight: FontWeight.w700,
             color: Color.fromARGB(255, 141, 4, 226),
+          ),
           ),
           ),
           Row(
@@ -82,6 +91,7 @@ class HomePage extends StatelessWidget {
           )
         ],
       )
+      ),
     );
   }
 }
