@@ -13,15 +13,35 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
   }
 }
-class HomePage extends StatelessWidget {
-      HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
-      void decrement(){print('decrement');}
-      void increment(){print('increment');}
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int contador = 0;
+
+      void decrement(){
+        setState(() {
+        contador--; 
+        });
+        print(contador);
+        }
+      void increment(){
+        setState(() {
+        contador++; 
+        }); 
+        print(contador);
+        }
+        bool get isEmpty => contador == 0;
+        bool get isFull => contador == 10;
 
   @override
   Widget build(BuildContext context) {
@@ -29,35 +49,38 @@ class HomePage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/6beb97e072221dc150318cf46173439b.jps'),
+            image: AssetImage('assets/images/image.jpg'),
             fit: BoxFit.cover,
           )
         ),
         child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Pode Entrar!',
+          Text(
+            isFull ? 'Lotado':'Pode Entrar!',
           style: TextStyle(
             fontSize: 26,
             fontWeight: FontWeight.w700,
-            color: Color.fromARGB(255, 141, 4, 226),
+            color:isFull ? Colors.blue : Color.fromARGB(255, 141, 4, 226),
           ),
           ),
-          const Padding(padding: EdgeInsets.all(50),
-          child: Text('0',
+          Padding(padding: EdgeInsets.all(50),
+          child: Text(
+          contador.toString(),
           style: TextStyle(
             fontSize: 26,
             fontWeight: FontWeight.w700,
-            color: Color.fromARGB(255, 141, 4, 226),
+            color: isFull ? Colors.blue : Color.fromARGB(255, 141, 4, 226),
           ),
           ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(onPressed: decrement,
+              TextButton(
+              onPressed: isEmpty ? null: decrement,
               style: TextButton.styleFrom(
-                backgroundColor: Colors.black,
+                backgroundColor: isEmpty ? Colors.black.withOpacity(0.2) : Colors.black,
                 fixedSize: const Size(45, 45),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(24),
@@ -72,9 +95,10 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(width: 32,
               ),
-              TextButton(onPressed: increment,
+              TextButton(
+                onPressed:isFull ? null: increment,
                style: TextButton.styleFrom(
-                backgroundColor: Colors.black,
+                backgroundColor: isFull ? Colors.black.withOpacity(0.2) : Colors.black,
                 fixedSize: const Size(45, 45),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(24),
@@ -91,21 +115,6 @@ class HomePage extends StatelessWidget {
           )
         ],
       )
-      ),
-    );
-  }
-}
-
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
       ),
     );
   }
