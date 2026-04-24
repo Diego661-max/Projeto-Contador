@@ -49,11 +49,7 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-<<<<<<< HEAD
             image: AssetImage('assets/images/image.jpg'),
-=======
-            image: AssetImage('assets/images/6beb97e072221dc150318cf46173439b.jps'),
->>>>>>> f9c8c252888ce21e6260c47422799f6e2a3e3662
             fit: BoxFit.cover,
           )
         ),
@@ -68,14 +64,9 @@ class _HomePageState extends State<HomePage> {
             color:isFull ? Colors.blue : Color.fromARGB(255, 141, 4, 226),
           ),
           ),
-<<<<<<< HEAD
           Padding(padding: EdgeInsets.all(50),
           child: Text(
           contador.toString(),
-=======
-          const Padding(padding: EdgeInsets.all(50),
-          child: Text('0',
->>>>>>> f9c8c252888ce21e6260c47422799f6e2a3e3662
           style: TextStyle(
             fontSize: 26,
             fontWeight: FontWeight.w700,
@@ -125,24 +116,6 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       )
-<<<<<<< HEAD
-=======
-      ),
-    );
-  }
-}
-
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
->>>>>>> f9c8c252888ce21e6260c47422799f6e2a3e3662
       ),
     );
   }

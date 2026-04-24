@@ -19,8 +19,4 @@ flutter:
   uses-material-design: true
 
 assets:
-<<<<<<< HEAD
-    - assets/images/image.jpg
-=======
-    assets/images/6beb97e072221dc150318cf46173439b.jpg
->>>>>>> f9c8c252888ce21e6260c47422799f6e2a3e3662
+    assets/images/image.jpg
